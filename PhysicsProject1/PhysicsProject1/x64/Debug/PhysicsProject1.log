@@ -1,0 +1,2 @@
+﻿  physics.cpp
+c:\users\c00232277\desktop\physicsproject1\physicsproject1\physics.cpp(7): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
