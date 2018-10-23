@@ -1,3 +1,3 @@
 ﻿  physics.cpp
-c:\users\c00232277\desktop\physicsproject1\physicsproject1\physics.cpp(147): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  PhysicsProject1.vcxproj -> C:\Users\c00232277\Desktop\PhysicsProject1\Debug\PhysicsProject1.exe
+c:\users\c00232277\desktop\physics-projectiles\physicsproject1\physicsproject1\physics.cpp(157): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  PhysicsProject1.vcxproj -> C:\Users\c00232277\Desktop\Physics-Projectiles\PhysicsProject1\Debug\PhysicsProject1.exe

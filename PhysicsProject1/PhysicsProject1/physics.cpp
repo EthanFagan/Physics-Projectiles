@@ -12,7 +12,8 @@ int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 800), "Insert physics here");
 
-	sf::CircleShape shape(5);
+	sf::RectangleShape shape;
+	shape.setSize(sf::Vector2f(10, 10));
 	shape.setOrigin(5, 5);
 	shape.setFillColor(sf::Color::Red);
 	const int MAX_SHAPE_HEIGHT = 30;
@@ -58,7 +59,7 @@ int main()
 	bool grounded = false;
 
 	sf::Vector2f velocity(0, 0);
-	sf::Vector2f position(150, 400);
+	sf::Vector2f position(400, 400);
 	sf::Vector2f rectanglePosition(0, 410);
 
 	float pixelsToMeters = 20;
@@ -85,10 +86,10 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 			
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
+			/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
 			{
 				velocity = sf::Vector2f(0, 0);
-				position = sf::Vector2f(150, 400);
+				position = sf::Vector2f(400, 400);
 				finalX = 0;
 				finalY = 0;
 			}
@@ -117,6 +118,15 @@ int main()
 						velocity = sf::Vector2f(finalX, finalY);
 					}
 
+			}*/
+			if ((timeelapsed > 0 && timeelapsed < MAX_SHAPE_HEIGHT) || timeelapsed == 0)
+			{
+				timeelapsed++;
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
+				{
+					velocity = sf::Vector2f(0, 65);
+				}
+
 			}
 	
 		}
@@ -132,7 +142,7 @@ int main()
 			// update position and velocity here using equations in lab sheet using timeChange as  timeSinceLastUpdate.asSeconds().
 			timeDisplays[1].setString("Velocity will be " + std::to_string(finalX) + std::to_string(finalY));
 
-			if (position.y + 5.0f < rectanglePosition.y || velocity.y < 5.0f)
+			if (position.y + 5.0f < rectanglePosition.y || velocity.y < 0.5f)
 			{
 
 				position = position + (velocity * timeSinceLastUpdate.asSeconds()) + (0.5f * gravity * (timeSinceLastUpdate.asSeconds() * timeSinceLastUpdate.asSeconds()));
@@ -144,7 +154,7 @@ int main()
 			}
 			else
 			{
-				velocity.y = (-0.90 * velocity.y);
+				velocity.y = (-0.75 * velocity.y);
 				timeelapsed = 0;
 			}
 
